@@ -7,24 +7,19 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Install Git
-      shell: ${{ inputs.shell }}
-      run: |
-        apt update -y
-        apt install -y git
     - uses: actions/checkout@v4
     - name: Bootstrap project on Windows
       if: ${{ runner.os == 'Windows' }}
       shell: ${{ inputs.shell }}
       run: |
-        git config --global --add safe.directory .
+        git config --global --add safe.directory "$(pwd)"
         git pull
         ./bootstrap.ps1
     - name: Bootstrap project on Linux/MacOS
       if: ${{ runner.os != 'Windows' }}
       shell: ${{ inputs.shell }}
       run: |
-        git config --global --add safe.directory .
+        git config --global --add safe.directory "$(pwd)"
         git pull
         chmod +x ./bootstrap.sh
         ./bootstrap.sh
