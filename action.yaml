@@ -9,7 +9,7 @@ runs:
   steps:
     - name: Bootstrap project on Windows
       if: ${{ runner.os == 'Windows' }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       shell: ${{ inputs.shell }}
       run: |
         git config --global --add safe.directory .
@@ -17,7 +17,7 @@ runs:
         ./bootstrap.ps1
     - name: Bootstrap project on Linux/MacOS
       if: ${{ runner.os != 'Windows' }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       shell: ${{ inputs.shell }}
       run: |
         git config --global --add safe.directory .
