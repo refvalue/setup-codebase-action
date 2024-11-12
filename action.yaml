@@ -9,7 +9,7 @@ runs:
   steps:
     - name: Bootstrap project on Windows
       if: ${{ runner.os == 'Windows' }}
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
       with:
         shell: ${{ inputs.shell }}
     - run: |
@@ -18,7 +18,7 @@ runs:
         ./bootstrap.ps1
     - name: Bootstrap project on Linux/MacOS
       if: ${{ runner.os != 'Windows' }}
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
       with:
         shell: ${{ inputs.shell }}
     - run: |
