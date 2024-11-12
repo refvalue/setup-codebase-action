@@ -8,6 +8,7 @@ runs:
   using: "composite"
   steps:
     - name: Install Git
+      if: ${{ runner.os == 'Linux' }}
       shell: ${{ inputs.shell }}
       run: |
         apt update -y
