@@ -7,6 +7,11 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Install Git
+      shell: ${{ inputs.shell }}
+      run: |
+        apt update -y
+        apt install -y git
     - uses: actions/checkout@v4
     - name: Bootstrap project on Windows
       if: ${{ runner.os == 'Windows' }}
