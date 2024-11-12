@@ -9,21 +9,21 @@ runs:
   steps:
     - name: Bootstrap project on Windows
       if: ${{ runner.os == 'Windows' }}
-      shell: ${{ inputs.shell }}
       uses: actions/checkout@v4
     - run: |
         git config --global --add safe.directory .
         git pull
         ./bootstrap.ps1
+      shell: ${{ inputs.shell }}
     - name: Bootstrap project on Linux/MacOS
       if: ${{ runner.os != 'Windows' }}
-      shell: ${{ inputs.shell }}
       uses: actions/checkout@v4
     - run: |
         git config --global --add safe.directory .
         git pull
         chmod +x ./bootstrap.sh
         ./bootstrap.sh
+      shell: ${{ inputs.shell }}
     - name: Deploy CMakeUserPresets.json
       shell: ${{ inputs.shell }}
       run: cp ./CMakeUserPresets-example.json ./CMakeUserPresets.json
