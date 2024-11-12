@@ -10,8 +10,7 @@ runs:
     - name: Bootstrap project on Windows
       if: ${{ runner.os == 'Windows' }}
       uses: actions/checkout@v4
-      with:
-        shell: pwsh
+      shell: pwsh
     - run: |
         git config --global --add safe.directory .
         git pull
@@ -19,8 +18,7 @@ runs:
     - name: Bootstrap project on Linux/MacOS
       if: ${{ runner.os != 'Windows' }}
       uses: actions/checkout@v4
-      with:
-        shell: bash
+      shell: bash
     - run: |
         git config --global --add safe.directory .
         git pull
