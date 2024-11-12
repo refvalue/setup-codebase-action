@@ -9,18 +9,18 @@ runs:
   steps:
     - name: Bootstrap project on Windows
       if: ${{ runner.os == 'Windows' }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
-        shell: ${{ inputs.shell }}
+        shell: pwsh
     - run: |
         git config --global --add safe.directory .
         git pull
         ./bootstrap.ps1
     - name: Bootstrap project on Linux/MacOS
       if: ${{ runner.os != 'Windows' }}
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
-        shell: ${{ inputs.shell }}
+        shell: bash
     - run: |
         git config --global --add safe.directory .
         git pull
