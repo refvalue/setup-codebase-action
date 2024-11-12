@@ -12,7 +12,7 @@ runs:
       uses: actions/checkout@v4
       with:
         shell: ${{ inputs.shell }}
-      run: |
+    - run: |
         git config --global --add safe.directory .
         git pull
         ./bootstrap.ps1
@@ -21,7 +21,7 @@ runs:
       uses: actions/checkout@v4
       with:
         shell: ${{ inputs.shell }}
-      run: |
+    - run: |
         git config --global --add safe.directory .
         git pull
         chmod +x ./bootstrap.sh
